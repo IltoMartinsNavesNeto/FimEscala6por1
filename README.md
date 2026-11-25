@@ -48,11 +48,13 @@ FimEscala6x1/
 ├─ site/        ← o site publicado: página, conteúdo (dados.json), estilos, fontes e imagens
 ├─ robo/        ← robô de atualização: monitor, validação, regras para o Claude e testes
 ├─ scripts/     ← gerador do código Pix e do QR Code de apoio
+├─ supabase/    ← banco da área da empresa: tabelas, regras de acesso e pagamento por Pix
 ├─ .github/workflows/ ← automações de publicação e do robô diário
 └─ docs/
    ├─ PLANO.md      ← fases do projeto e decisões
    ├─ FONTES.md     ← fontes oficiais e situação das regras
-   └─ OPERACAO.md   ← como rodar, publicar e manter
+   ├─ OPERACAO.md   ← como rodar, publicar e manter
+   └─ EMPRESA.md    ← como colocar no ar a área da empresa
 ```
 
 ## Próximos passos
@@ -62,7 +64,7 @@ FimEscala6x1/
 | 1. Página do empregado | Pronta |
 | 2. Robô de atualização | Pronto |
 | 3. Lançamento (domínio, prévia no WhatsApp, divulgação) | Em andamento |
-| 4. Lado da empresa: simulador de quadro de pessoal, gerador de escala 5x2, checklist de prazos | A fazer |
+| 4. Área da empresa (R$ 10/mês): colaboradores com escala, visão da equipe e espelho de cada um. Depois: batida de ponto real | Etapa 1 pronta, falta rodar o SQL do Pix (docs/EMPRESA.md) |
 | 5. Agente: chat que tira dúvidas usando as regras do site | A fazer |
 
 Detalhes em [docs/PLANO.md](docs/PLANO.md).

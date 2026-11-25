@@ -1,0 +1,89 @@
+/* Nova Jornada: área da empresa (usa as variáveis e componentes de ../assets/styles.css) */
+.emp { padding-top: 48px; padding-bottom: 72px; min-height: 60vh; }
+.emp h1 { font-size: clamp(30px, 4.4vw, 44px); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 12px; }
+.emp-etiqueta { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--suave); padding: 4px 10px; border: 1px solid var(--linha); border-radius: 999px; }
+.emp-link { font: inherit; font-weight: 500; font-size: 15px; background: none; border: 0; padding: 10px 0; color: var(--tinta); cursor: pointer; }
+.emp-link:hover { color: var(--destaque); }
+
+.emp-aviso { margin: 0 0 24px; padding: 14px 18px; border-radius: 12px; font-size: 15px; background: var(--superficie); border: 1px solid var(--linha); }
+.emp-aviso--ok { background: var(--destaque-claro); border-color: var(--destaque-claro-linha); }
+.emp-aviso--erro { border-color: var(--destaque); color: var(--tinta); }
+
+/* Entrada */
+.emp-entrar { padding: 24px 0 32px; }
+.emp-entrar__texto { max-width: 720px; }
+.emp-lista { margin: 24px 0 32px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 17px; }
+.emp-lista li { padding-left: 28px; position: relative; }
+.emp-lista li::before { content: ""; position: absolute; left: 0; top: 0.45em; width: 14px; height: 8px; border-left: 3px solid var(--destaque); border-bottom: 3px solid var(--destaque); transform: rotate(-45deg); }
+.emp-entrar__acoes { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.emp-google { display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 12px 22px; font: inherit; font-size: 17px; font-weight: 600; color: #1F1F1F; background: #FFFFFF; border: 1px solid #DADCE0; border-radius: 12px; cursor: pointer; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); }
+.emp-google:hover { background: #F8F9FA; }
+.emp-google svg { width: 22px; height: 22px; }
+
+/* Formulários */
+.emp-form { display: flex; flex-direction: column; gap: 16px; max-width: 640px; }
+.emp-form .pix__botao { align-self: flex-start; }
+.emp-form > .ponto__campo { flex: none; }
+
+/* Painel */
+.emp-cabeca { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 20px 40px; margin-bottom: 28px; }
+.emp-plano { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 18px 20px; border-radius: 14px; background: var(--superficie); border: 1px solid var(--linha); min-width: 260px; max-width: 360px; }
+.emp-selo { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--destaque); }
+.emp-selo--ok { color: #15803D; }
+[data-tema="escuro"] .emp-selo--ok { color: #4ADE80; }
+.emp-barra { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; margin-bottom: 20px; }
+.emp-barra .ponto__campo { flex: 0 1 200px; }
+.emp-barra .pix__botao { margin-left: auto; }
+.pix__botao:disabled, .emp-acoes button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.emp-tabela td { vertical-align: top; }
+.emp-nome strong { display: block; }
+.emp-cargo { display: block; font-size: 13px; color: var(--suave); }
+.emp-situacao { font-size: 14px; }
+.emp-situacao--alerta { color: var(--destaque); font-weight: 600; }
+.emp-linha--alerta td:first-child { box-shadow: inset 3px 0 0 var(--destaque); }
+.emp-acoes { display: flex; gap: 12px; flex-wrap: wrap; }
+.emp-vazio { padding: 24px; border: 1px dashed var(--selo-linha); border-radius: 14px; text-align: center; }
+.emp-detalhe { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--linha); }
+.emp-detalhe h2 { font-size: 24px; margin: 0; }
+.emp-detalhe__acoes { display: flex; gap: 8px; }
+
+/* Diálogo */
+.emp-dialogo { width: min(640px, calc(100vw - 32px)); max-height: calc(100vh - 32px); padding: 28px; border: 1px solid var(--linha); border-radius: 16px; background: var(--superficie); color: var(--tinta); }
+.emp-dialogo::backdrop { background: rgba(10, 12, 16, 0.6); }
+.emp-dialogo h2 { font-size: 24px; }
+.emp-dialogo .emp-form { max-width: none; }
+.emp-dialogo__acoes { display: flex; justify-content: flex-end; gap: 10px; }
+
+@media print {
+  body.imprimindo-detalhe .topo, body.imprimindo-detalhe .rodape, body.imprimindo-detalhe .emp-cabeca,
+  body.imprimindo-detalhe .emp-barra, body.imprimindo-detalhe #equipe-resumo, body.imprimindo-detalhe .ponto__tabela-caixa:has(#equipe-tabela),
+  body.imprimindo-detalhe .emp-detalhe__acoes, body.imprimindo-detalhe .emp-aviso, body.imprimindo-detalhe .ponto__rodape { display: none !important; }
+  body.imprimindo-detalhe .emp-detalhe { margin: 0; border: 0; }
+}
+
+/* Pagamento por Pix */
+.emp-pix-dados { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 0; }
+.emp-pix-dados div { padding: 12px 14px; border-radius: 10px; background: var(--fundo); border: 1px solid var(--linha); min-width: 0; }
+.emp-pix-dados dt { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--suave); }
+.emp-pix-dados dd { margin: 4px 0 0; font-weight: 700; overflow-wrap: anywhere; }
+.emp-pix-dados code { font-size: 13px; }
+.emp-pix-codigo { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 13px; line-height: 1.4; resize: none; word-break: break-all; }
+.emp-pix-passos { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: var(--texto); }
+.emp-dialogo__acoes { flex-wrap: wrap; }
+.emp-admin-titulo { font-size: 22px; margin: 32px 0 12px; }
+.emp-pix-pagar { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 16px 20px; }
+.emp-pix-pagar .ponto__campo { flex: 1 1 260px; }
+.emp-pix-qr { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 0 0 auto; }
+.emp-pix-qr img { display: block; width: 180px; height: 180px; padding: 10px; border-radius: 12px; background: #FFFFFF; border: 1px solid var(--linha); }
+.emp-pix-qr figcaption { font-size: 12px; color: var(--suave); }
+
+/* Tempo até o próximo pagamento */
+.emp-prazo { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+.emp-prazo__numero { font-family: var(--titulo); font-size: 28px; font-weight: 700; line-height: 1.1; }
+.emp-prazo__numero #prazo-unidade { font-size: 18px; }
+.emp-prazo__barra { height: 6px; border-radius: 999px; background: var(--linha); overflow: hidden; }
+.emp-prazo__barra span { display: block; height: 100%; border-radius: inherit; background: #15803D; }
+[data-tema="escuro"] .emp-prazo__barra span { background: #4ADE80; }
+.emp-prazo--perto .emp-prazo__numero { color: var(--destaque); }
+.emp-prazo--perto .emp-prazo__barra span { background: var(--destaque); }

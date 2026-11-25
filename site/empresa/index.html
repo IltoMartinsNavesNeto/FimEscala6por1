@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Área da empresa | Nova Jornada</title>
+<meta name="description" content="Cadastre seus colaboradores e confira a escala de cada um com as regras do fim da escala 6x1.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#15171C">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="empresa.css">
+<script src="../assets/tema.js"></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="container topo__linha">
+    <div class="topo__marca">
+      <a class="marca" href="../"><span class="marca__selo" aria-hidden="true">5x2</span><span>Nova Jornada</span></a>
+      <span class="emp-etiqueta">Empresa</span>
+    </div>
+    <nav aria-label="Seções" class="menu">
+      <a href="../">Site do trabalhador</a>
+      <a href="admin.html" id="link-admin" hidden>Administração</a>
+      <button type="button" class="emp-link" id="botao-sair" hidden>Sair</button>
+    </nav>
+    <button type="button" class="tema" id="botao-tema" aria-pressed="false" aria-label="Mudar para o modo escuro" title="Mudar para o modo escuro">
+      <svg class="tema__lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="tema__sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo" class="container emp">
+  <p class="emp-aviso" id="aviso" role="status" aria-live="polite" hidden></p>
+
+  <!-- Sem configuração do Supabase -->
+  <section id="tela-config" hidden>
+    <h1>Área da empresa</h1>
+    <p class="intro">Esta área ainda está sendo configurada. Volte em breve.</p>
+  </section>
+
+  <!-- Visitante -->
+  <section id="tela-entrar" class="emp-entrar" hidden>
+    <div class="emp-entrar__texto">
+      <p class="sobretitulo">Para empresas</p>
+      <h1>A escala de toda a equipe dentro das novas regras.</h1>
+      <p class="hero__sub">Cadastre seus colaboradores com escala e horário e veja, mês a mês, quem passa do limite de horas, quem fica sem as duas folgas e quais feriados caem na escala de cada um.</p>
+      <ul class="emp-lista">
+        <li>Limites de 44h, 42h e 40h aplicados em cada data</li>
+        <li>Feriados nacionais, estaduais e da sua cidade</li>
+        <li>Espelho do mês de cada colaborador, pronto para imprimir</li>
+      </ul>
+      <div class="emp-entrar__acoes">
+        <button type="button" class="emp-google" id="botao-google">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+          Entrar com Google
+        </button>
+        <p class="nota" id="preco-texto">R$ 10 por mês por empresa, sem fidelidade. Pagamento por Pix.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logado, sem empresa -->
+  <section id="tela-cadastro" hidden>
+    <h1>Cadastre sua empresa</h1>
+    <p class="intro">Os feriados da cidade da empresa entram na escala de todos os colaboradores.</p>
+    <form id="form-empresa" class="emp-form" novalidate>
+      <label class="ponto__campo">Nome da empresa
+        <input id="empresa-nome" type="text" maxlength="120" required autocomplete="organization">
+      </label>
+      <div class="ponto__campos">
+        <label class="ponto__campo">Estado
+          <select id="empresa-uf" required><option value="">Escolha o estado</option></select>
+        </label>
+        <label class="ponto__campo">Cidade
+          <select id="empresa-cidade" disabled><option value="">Escolha o estado primeiro</option></select>
+        </label>
+      </div>
+      <button type="submit" class="pix__botao">Cadastrar empresa</button>
+    </form>
+  </section>
+
+  <!-- Painel da empresa -->
+  <section id="tela-painel" hidden>
+    <div class="emp-cabeca">
+      <div>
+        <h1 id="painel-nome">Empresa</h1>
+        <p class="nota" id="painel-local"></p>
+      </div>
+      <div class="emp-plano" id="painel-plano">
+        <p class="emp-selo" id="plano-selo"></p>
+        <div class="emp-prazo" id="plano-prazo" hidden>
+          <p class="emp-prazo__numero"><span id="prazo-dias"></span> <span id="prazo-unidade"></span></p>
+          <div class="emp-prazo__barra" aria-hidden="true"><span id="prazo-barra"></span></div>
+        </div>
+        <p class="nota" id="plano-texto"></p>
+        <button type="button" class="pix__botao" id="botao-pagar">Pagar R$ 10 (1 mês)</button>
+      </div>
+    </div>
+
+    <div class="emp-barra">
+      <label class="ponto__campo">Mês
+        <select id="painel-mes"></select>
+      </label>
+      <label class="ponto__campo ponto__campo--curto">Ano
+        <input id="painel-ano" type="number" min="2024" max="2035" inputmode="numeric">
+      </label>
+      <button type="button" class="pix__botao" id="botao-novo">Adicionar colaborador</button>
+    </div>
+
+    <div class="grade grade--4 ponto__resumo" id="equipe-resumo"></div>
+
+    <div class="ponto__tabela-caixa">
+      <table class="ponto__tabela emp-tabela" id="equipe-tabela"></table>
+    </div>
+    <p class="nota emp-vazio" id="equipe-vazio" hidden>Nenhum colaborador cadastrado ainda.</p>
+
+    <section class="emp-detalhe" id="detalhe" hidden aria-labelledby="detalhe-titulo">
+      <div class="ponto__cabeca">
+        <h2 id="detalhe-titulo">Espelho</h2>
+        <div class="emp-detalhe__acoes">
+          <button type="button" class="botao-secundario" id="detalhe-imprimir">Imprimir</button>
+          <button type="button" class="botao-secundario" id="detalhe-fechar">Fechar</button>
+        </div>
+      </div>
+      <ul class="ponto__alertas" id="detalhe-alertas"></ul>
+      <div class="ponto__tabela-caixa">
+        <table class="ponto__tabela" id="detalhe-tabela"></table>
+      </div>
+    </section>
+
+    <p class="nota ponto__rodape">Escala planejada, calculada com as regras de cada etapa e os feriados da cidade da empresa. Não substitui o registro de ponto exigido pela Portaria MTP 671/2021.</p>
+  </section>
+</main>
+
+<dialog class="emp-dialogo" id="dialogo-colab" aria-labelledby="colab-titulo">
+  <form method="dialog" id="form-colab" class="emp-form" novalidate>
+    <h2 id="colab-titulo">Novo colaborador</h2>
+    <div class="ponto__campos">
+      <label class="ponto__campo">Nome
+        <input id="colab-nome" type="text" maxlength="120" required autocomplete="off">
+      </label>
+      <label class="ponto__campo">Cargo (opcional)
+        <input id="colab-cargo" type="text" maxlength="80" autocomplete="off">
+      </label>
+    </div>
+    <label class="ponto__campo">Tipo de escala
+      <select id="colab-escala">
+        <option value="5x2">5x2: segunda a sexta</option>
+        <option value="6x1-fixa">6x1 com folga fixa</option>
+        <option value="6x1-reveza">6x1 com folga que reveza</option>
+        <option value="12x36">12x36</option>
+        <option value="semana">Outra: escolho os dias da semana</option>
+        <option value="ciclo">Outra: dias de trabalho e de folga em sequência</option>
+      </select>
+    </label>
+    <div class="ponto__dias" id="colab-dias" role="group" aria-label="Dias da semana de trabalho"></div>
+    <div class="ponto__campos" id="colab-ciclo" hidden>
+      <label class="ponto__campo ponto__campo--curto">Dias de trabalho
+        <input id="colab-ciclo-trabalho" type="number" min="1" max="14" inputmode="numeric">
+      </label>
+      <label class="ponto__campo ponto__campo--curto">Dias de folga
+        <input id="colab-ciclo-folga" type="number" min="1" max="14" inputmode="numeric">
+      </label>
+      <label class="ponto__campo ponto__campo--data">Início do ciclo
+        <input id="colab-ciclo-inicio" type="date">
+      </label>
+    </div>
+    <div class="ponto__campos">
+      <label class="ponto__campo ponto__campo--curto">Entrada
+        <input id="colab-entrada" type="time">
+      </label>
+      <label class="ponto__campo ponto__campo--curto">Saída
+        <input id="colab-saida" type="time">
+      </label>
+      <label class="ponto__campo ponto__campo--curto">Intervalo
+        <select id="colab-intervalo">
+          <option value="0">Sem intervalo</option>
+          <option value="15">15 min</option>
+          <option value="30">30 min</option>
+          <option value="60">1 hora</option>
+          <option value="75">1h15</option>
+          <option value="90">1h30</option>
+          <option value="105">1h45</option>
+          <option value="120">2 horas</option>
+        </select>
+      </label>
+    </div>
+    <label class="ponto__marcar"><input id="colab-feriado" type="checkbox"> Trabalha nos feriados que caem na escala</label>
+    <p class="pix__status" id="colab-erro" role="alert"></p>
+    <div class="emp-dialogo__acoes">
+      <button type="button" class="botao-secundario" id="colab-cancelar">Cancelar</button>
+      <button type="submit" class="pix__botao" id="colab-salvar">Salvar</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="emp-dialogo" id="dialogo-pix" aria-labelledby="pix-dialogo-titulo">
+  <div class="emp-form">
+    <h2 id="pix-dialogo-titulo">Pagar 1 mês com Pix</h2>
+    <dl class="emp-pix-dados">
+      <div><dt>Valor</dt><dd id="pix-valor">R$ 10,00</dd></div>
+      <div><dt>Recebedor</dt><dd id="pix-recebedor"></dd></div>
+      <div><dt>Identificador</dt><dd><code id="pix-identificador"></code></dd></div>
+    </dl>
+    <div class="emp-pix-pagar">
+      <figure class="emp-pix-qr">
+        <img id="pix-qr" width="180" height="180" alt="QR Code do Pix de R$ 10">
+        <figcaption>Aponte a câmera do app do banco</figcaption>
+      </figure>
+      <label class="ponto__campo">Ou use o Pix copia e cola
+        <textarea id="pix-codigo" class="emp-pix-codigo" rows="5" readonly></textarea>
+      </label>
+    </div>
+    <ol class="emp-pix-passos">
+      <li>Escaneie o QR Code ou copie o código e, no app do banco, escolha <strong>Pix › Pix copia e cola</strong>.</li>
+      <li>Confira o valor e o recebedor e confirme.</li>
+      <li>Volte aqui e clique em <strong>Já fiz o Pix</strong>: o acesso é liberado na hora. Depois conferimos o pagamento; se ele não chegar, o mês liberado é retirado.</li>
+    </ol>
+    <p class="pix__status" id="pix-msg" role="status" aria-live="polite"></p>
+    <div class="emp-dialogo__acoes">
+      <button type="button" class="botao-secundario" id="pix-fechar">Fechar</button>
+      <button type="button" class="botao-secundario" id="pix-copiar">Copiar código</button>
+      <button type="button" class="pix__botao" id="pix-avisei">Já fiz o Pix</button>
+    </div>
+  </div>
+</dialog>
+
+<footer class="rodape">
+  <div class="container autor">
+    <p>Guardamos só o nome, o cargo e a escala de cada colaborador. Não cadastre CPF nem dados de saúde.</p>
+    <ul class="autor__links">
+      <li class="autor__contato">Contato: <a href="mailto:iltoneto444@gmail.com">iltoneto444@gmail.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="../assets/motor-ponto.js"></script>
+<script src="../assets/pix-codigo.js"></script>
+<script src="../assets/vendor/qrcode.js"></script>
+<script src="supabase-leve.js"></script>
+<script src="empresa.js"></script>
+</body>
+</html>

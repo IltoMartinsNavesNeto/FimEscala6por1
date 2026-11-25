@@ -11,7 +11,7 @@ Um site, e depois um agente, que mostra o que muda com o fim da escala 6x1 para 
 | 1. Página do empregado | O que muda, linha do tempo, calculadora do valor da hora, casos específicos, o que fazer se a empresa não cumprir | **Pronta** (`site/`) |
 | 2. Robô de atualização | Verificação diária de fontes oficiais + proposta de atualização via Pull Request | **Pronto**, falta ativar (secrets no GitHub) |
 | 3. Lançamento | Domínio, prévia no WhatsApp, divulgação | A fazer (ver checklist no README) |
-| 4. Lado da empresa | Simulador de quadro de pessoal (44h × 42h × 40h), gerador de escala 5x2 com rodízio de folgas e domingos, checklist de prazos | A fazer |
+| 4. Lado da empresa | Etapa 1: área paga (R$ 10/mês por Pix, confirmado em /empresa/admin.html) com login Google, colaboradores com escala e espelho de cada um (Supabase). Etapa 2: batida de ponto real (Portaria MTP 671/2021) | Etapa 1 **pronta**, falta rodar o SQL do Pix (`docs/EMPRESA.md`) |
 | 5. Agente | Chat que responde dúvidas usando o Claude, com ferramentas que fazem as contas | A fazer |
 
 ## Arquitetura atual
