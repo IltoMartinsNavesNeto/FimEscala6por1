@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fim da escala 6x1: o que muda pra você | Nova Jornada</title>
+<meta name="description" content="Guia independente para o trabalhador sobre o fim da escala 6x1: datas, folgas, salário e quanto passa a valer a sua hora.">
+<meta name="theme-color" content="#15171C">
+
+<!-- Prévia ao compartilhar (WhatsApp, redes sociais). Troque SEU-DOMINIO pelo endereço final. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Nova Jornada">
+<meta property="og:title" content="A escala 6x1 está acabando. Veja o que muda pra você.">
+<meta property="og:description" content="Datas, folgas, salário e uma calculadora do valor da sua hora com as novas regras.">
+<meta property="og:image" content="https://SEU-DOMINIO/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://SEU-DOMINIO/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="container topo__linha">
+    <a class="marca" href="#conteudo"><span class="marca__selo" aria-hidden="true">5x2</span><span data-campo="site.nome">Nova Jornada</span></a>
+    <nav aria-label="Seções" class="menu">
+      <a href="#mudancas">O que muda</a>
+      <a href="#linha-do-tempo">Datas</a>
+      <a href="#calcule">Valor da hora</a>
+      <a href="#casos">Meu caso</a>
+      <a href="#direitos">Se não cumprirem</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="container hero">
+    <div class="hero__linha">
+      <div class="hero__texto">
+        <p class="sobretitulo">Guia para o trabalhador · atualizado em <span id="atualizado-em">—</span></p>
+        <h1 data-campo="hero.titulo">A escala 6x1 está acabando. Veja o que muda pra você.</h1>
+        <p class="hero__sub" data-campo="hero.subtitulo"></p>
+      </div>
+      <div class="contagem" id="contagem" aria-live="polite">
+        <p class="contagem__rotulo" id="contagem-rotulo">Faltam</p>
+        <p class="contagem__numero" id="contagem-numero">—</p>
+        <p class="contagem__unidade" id="contagem-unidade"></p>
+        <p class="contagem__texto" id="contagem-texto"></p>
+      </div>
+    </div>
+    <ol class="fases" id="fases" aria-label="Etapas da transição"></ol>
+  </section>
+
+  <section id="mudancas" class="faixa faixa--branca">
+    <div class="container">
+      <h2>O que muda pra você</h2>
+      <p class="intro">Vale para quem tem carteira assinada, inclusive nos contratos que já estão em vigor.</p>
+      <div class="grade grade--4" id="lista-mudancas"></div>
+    </div>
+  </section>
+
+  <section id="linha-do-tempo" class="container secao">
+    <h2>Linha do tempo</h2>
+    <p class="intro">O que o Congresso, o governo e o STF já decidiram, e o que vem pela frente.</p>
+    <ol class="tempo" id="lista-tempo"></ol>
+  </section>
+
+  <section id="calcule" class="faixa faixa--clara">
+    <div class="container">
+      <h2>Quanto vale a sua hora</h2>
+      <p class="intro">Digite seu salário bruto. A conta é feita só no seu navegador: nada é enviado nem guardado.</p>
+      <div class="campo">
+        <label for="salario">Salário bruto mensal (R$)</label>
+        <input id="salario" type="text" inputmode="decimal" autocomplete="off" value="3.000,00">
+      </div>
+      <div class="grade grade--3" id="lista-calculo"></div>
+      <p class="nota" id="nota-calculo">Conta simplificada: salário ÷ divisor, com o adicional mínimo de 50% na hora extra. Se a sua convenção coletiva prevê um divisor menor ou um adicional maior, vale o que for melhor pra você.</p>
+    </div>
+  </section>
+
+  <section id="casos" class="container secao">
+    <h2>E no meu caso?</h2>
+    <p class="intro">Situações que geram mais dúvida.</p>
+    <div class="grade grade--3" id="lista-casos"></div>
+  </section>
+
+  <section id="pode-mudar" class="faixa faixa--escura">
+    <div class="container">
+      <h2>O que ainda pode mudar</h2>
+      <p class="intro">As datas e as garantias acima estão na Constituição. Alguns detalhes da transição ainda podem ser ajustados.</p>
+      <div class="grade grade--4" id="lista-pode-mudar"></div>
+    </div>
+  </section>
+
+  <section id="direitos" class="container secao">
+    <h2>Se a empresa não cumprir</h2>
+    <p class="intro" data-campo="direitos.intro"></p>
+    <ol class="grade grade--4 passos" id="lista-direitos"></ol>
+  </section>
+</main>
+
+<footer id="fontes" class="rodape">
+  <div class="container rodape__linha">
+    <div>
+      <h2>Fontes oficiais</h2>
+      <ul class="fontes" id="lista-fontes"></ul>
+    </div>
+    <div>
+      <h2>Sobre este site</h2>
+      <p data-campo="sobre"></p>
+      <p class="nota">Última atualização: <span id="atualizado-em-rodape">—</span>.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="erro" id="erro" hidden>
+  Não foi possível carregar as informações do site. Recarregue a página em instantes.
+</div>
+<noscript><div class="erro">Este site precisa de JavaScript para mostrar as datas e a calculadora.</div></noscript>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>

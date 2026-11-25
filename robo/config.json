@@ -1,0 +1,51 @@
+{
+  "modelo": "claude-sonnet-5-5",
+  "max_buscas": 6,
+  "max_tokens": 12000,
+  "versao_api": "2026-10-21",
+  "dominios_permitidos": [
+    "gov.br",
+    "planalto.gov.br",
+    "in.gov.br",
+    "stf.jus.br",
+    "tst.jus.br",
+    "senado.leg.br",
+    "camara.leg.br",
+    "congressonacional.leg.br",
+    "ebc.com.br",
+    "mpt.mp.br"
+  ],
+  "paginas_monitoradas": [
+    {
+      "nome": "Texto da EC 141/2026 (Planalto)",
+      "url": "https://planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm"
+    },
+    {
+      "nome": "ADI 8.041 no STF",
+      "url": "https://portal.stf.jus.br/processos/listarProcessos.asp?classe=ADI&numeroProcesso=8041"
+    },
+    {
+      "nome": "ADI 8.042 no STF",
+      "url": "https://portal.stf.jus.br/processos/listarProcessos.asp?classe=ADI&numeroProcesso=8042"
+    }
+  ],
+  "dou": {
+    "secoes": ["DO1", "DO1E"],
+    "dias_para_tras": 1,
+    "termos_fortes": [
+      "emenda constitucional n 141",
+      "emenda constitucional 141",
+      "decreto n 13.173",
+      "decreto 13.173",
+      "escala 6x1",
+      "escala 5x2"
+    ],
+    "orgao": "ministerio do trabalho",
+    "termos_do_orgao": [
+      "repouso semanal remunerado",
+      "duracao do trabalho",
+      "duracao normal do trabalho",
+      "jornada de trabalho"
+    ]
+  }
+}

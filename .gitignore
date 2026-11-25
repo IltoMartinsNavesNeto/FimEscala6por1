@@ -1,0 +1,14 @@
+# segredos e arquivos gerados pelo robô
+robo/.env
+robo/saida/
+robo/recusados.json
+
+# Python
+__pycache__/
+*.pyc
+
+# editores e sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

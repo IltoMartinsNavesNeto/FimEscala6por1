@@ -1,0 +1,187 @@
+{
+  "versao": 1,
+  "atualizadoEm": "2026-11-25",
+  "site": {
+    "nome": "Nova Jornada",
+    "descricao": "Guia independente para o trabalhador sobre o fim da escala 6x1: o que muda, quando muda e quanto passa a valer a sua hora."
+  },
+  "hero": {
+    "titulo": "A escala 6x1 está acabando. Veja o que muda pra você.",
+    "subtitulo": "A Emenda Constitucional 141/2026 garante duas folgas remuneradas por semana e reduz a jornada máxima em duas etapas, sem reduzir salário. Aqui você acompanha cada mudança na data em que ela passa a valer."
+  },
+  "etapas": [
+    {
+      "inicio": null,
+      "rotulo": "Até 15/12/2026",
+      "horasSemanais": 44,
+      "folgasSemanais": 1,
+      "divisor": 220,
+      "descricaoContagem": ""
+    },
+    {
+      "inicio": "2026-12-16",
+      "rotulo": "A partir de 16/12/2026",
+      "horasSemanais": 42,
+      "folgasSemanais": 2,
+      "divisor": 210,
+      "descricaoContagem": "quando a jornada máxima cai para 42 horas e as duas folgas passam a valer."
+    },
+    {
+      "inicio": "2027-12-16",
+      "rotulo": "A partir de 16/12/2027",
+      "horasSemanais": 40,
+      "folgasSemanais": 2,
+      "divisor": 200,
+      "descricaoContagem": "quando a jornada máxima cai para 40 horas."
+    }
+  ],
+  "adicionalHoraExtra": 0.5,
+  "mudancas": [
+    {
+      "rotulo": "Jornada",
+      "titulo": "44h → 42h → 40h",
+      "texto": "A jornada máxima cai para 42 horas por semana em 16/12/2026 e para 40 horas em 16/12/2027. O limite de 8 horas por dia continua."
+    },
+    {
+      "rotulo": "Folgas",
+      "titulo": "2 por semana, pagas",
+      "texto": "Você passa a ter dois dias de repouso remunerado por semana, um deles de preferência no domingo."
+    },
+    {
+      "rotulo": "Salário",
+      "titulo": "Não pode diminuir",
+      "texto": "A empresa não pode reduzir seu salário por causa da nova jornada: nem o valor, nem de forma proporcional. A proteção vale também para o piso da sua categoria."
+    },
+    {
+      "rotulo": "Valor da hora",
+      "titulo": "Sua hora fica mais cara",
+      "texto": "O salário fica igual, mas é dividido por menos horas: 210 e depois 200, em vez de 220. Isso aumenta o valor da hora extra e do adicional noturno."
+    }
+  ],
+  "linhaDoTempo": [
+    {
+      "data": "2026-10-16",
+      "titulo": "Emenda Constitucional 141 é promulgada",
+      "texto": "O Congresso aprova o fim da 6x1 e a emenda é publicada no Diário Oficial. A partir daqui, quem tem diploma de nível superior e ganha pelo menos 2,5 vezes o teto do INSS já fica fora do controle de jornada.",
+      "fonte": "https://planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm"
+    },
+    {
+      "data": "2026-11-12",
+      "titulo": "STF mantém as datas",
+      "texto": "Em decisão provisória (liminar), o ministro Flávio Dino nega o pedido para adiar as mudanças e autoriza alguns ajustes na transição. O plenário do STF ainda vai julgar o caso.",
+      "fonte": "https://www.jota.info/trabalho/stf-vai-julgar-6x1-em-sessao-presencial-apos-quatro-votos-a-favor-de-liminar-e-destaque-de-fux"
+    },
+    {
+      "data": "2026-11-19",
+      "titulo": "Decreto 13.173 define o valor da hora",
+      "texto": "O salário passa a ser dividido por 210 na fase de 42 horas e por 200 na de 40 horas. Se a sua convenção coletiva tiver uma regra mais favorável, vale a dela.",
+      "fonte": "https://agenciagov.ebc.com.br/noticias/202611/estamos-humanizanso-o-mundo-do-trabalho-diz-lula-ao-regulamentar-o-fim-da-escala-6x1"
+    },
+    {
+      "data": "2026-11-23",
+      "titulo": "Ministério do Trabalho publica portaria",
+      "texto": "Regras complementares e fiscalização: nos primeiros 90 dias de cada etapa, a primeira visita do fiscal é de orientação. A multa vem se a empresa não se adequar até a segunda visita.",
+      "fonte": "https://agenciabrasil.ebc.com.br/radioagencia-nacional/geral/audio/2026-11/governo-comeca-divulgar-novas-regras-para-escala-5x2"
+    },
+    {
+      "data": "2026-12-16",
+      "titulo": "Jornada máxima cai para 42 horas",
+      "texto": "Passam a valer as duas folgas remuneradas por semana e o divisor 210 para calcular sua hora.",
+      "fonte": "https://planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm"
+    },
+    {
+      "data": "2027-12-16",
+      "titulo": "Jornada máxima cai para 40 horas",
+      "texto": "Fim da transição: limite de 40 horas por semana e divisor 200.",
+      "fonte": "https://planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm"
+    }
+  ],
+  "casos": [
+    {
+      "titulo": "Já trabalho 40 horas ou menos",
+      "texto": "Sua jornada não é reduzida proporcionalmente. Mas, se você trabalha seis dias por semana, também passa a ter direito às duas folgas."
+    },
+    {
+      "titulo": "Trabalho em 12x36",
+      "texto": "A escala continua permitida, mas a média de horas no mês precisa respeitar o novo limite semanal. O que passar disso vira folga compensada ou hora extra, conforme o acordo com o sindicato."
+    },
+    {
+      "titulo": "Trabalho em turnos ininterruptos",
+      "texto": "A jornada de 6 horas por dia continua, a não ser que a negociação coletiva preveja outra, sempre dentro dos novos limites."
+    },
+    {
+      "titulo": "Pediram pra eu trabalhar na folga",
+      "texto": "Pode acontecer, mas a folga tem que ser dada em outro dia do mesmo mês e o dia trabalhado é pago como hora extra. Isso não autoriza voltar a uma 6x1 fixa."
+    },
+    {
+      "titulo": "Minhas folgas mudam de semana pra semana",
+      "texto": "Por acordo coletivo, as folgas podem ser distribuídas de forma desigual, desde que a média seja de duas por semana no mês e haja pelo menos uma folga a cada sete dias."
+    },
+    {
+      "titulo": "Tenho diploma e salário alto",
+      "texto": "Com nível superior e salário de pelo menos 2,5 vezes o teto do INSS, você fica fora do controle de jornada, salvo se a empresa ou um acordo disser o contrário. O repouso semanal continua garantido. Não vale para empregados públicos."
+    }
+  ],
+  "podeMudar": [
+    {
+      "titulo": "Julgamento no STF",
+      "texto": "As ações sobre a transição (ADIs 8.041 e 8.042) vão ao plenário presencial, ainda sem data. Até lá, vale a liminar do ministro Flávio Dino."
+    },
+    {
+      "titulo": "Dias de 8h24 na transição",
+      "texto": "Pela liminar, sem acordo coletivo, a empresa pode distribuir as 42 horas em cinco dias de até 8h24, sem que os 24 minutos contem como hora extra. Vale só até o limite de 40 horas."
+    },
+    {
+      "titulo": "Novas normas do ministério",
+      "texto": "O Ministério do Trabalho pode publicar regras complementares, principalmente para categorias com regimes especiais."
+    },
+    {
+      "titulo": "Pequenas empresas",
+      "texto": "Uma lei complementar ainda pode criar medidas de transição para MEI, microempresas e empresas de pequeno porte, ligadas à manutenção de empregos."
+    }
+  ],
+  "direitos": {
+    "intro": "A partir de 16/12/2026, confira se sua escala tem as duas folgas, se as horas acima do limite estão sendo pagas como extra e se o salário foi mantido.",
+    "passos": [
+      {
+        "titulo": "Converse com o RH",
+        "texto": "Muitas empresas ainda estão ajustando escalas. Peça por escrito como ficou a sua."
+      },
+      {
+        "titulo": "Procure o seu sindicato",
+        "texto": "É ele quem negocia os acordos que definem detalhes como a distribuição das folgas."
+      },
+      {
+        "titulo": "Denuncie ao Ministério do Trabalho",
+        "texto": "Pelo canal de denúncias da Inspeção do Trabalho. Seus dados de identificação ficam em sigilo."
+      },
+      {
+        "titulo": "Vá à Justiça do Trabalho",
+        "texto": "Para cobrar horas extras e folgas que não foram concedidas."
+      }
+    ]
+  },
+  "fontes": [
+    {
+      "titulo": "Emenda Constitucional nº 141/2026 (Planalto)",
+      "url": "https://planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm"
+    },
+    {
+      "titulo": "Decreto nº 13.173/2026 (Agência Gov)",
+      "url": "https://agenciagov.ebc.com.br/noticias/202611/estamos-humanizanso-o-mundo-do-trabalho-diz-lula-ao-regulamentar-o-fim-da-escala-6x1"
+    },
+    {
+      "titulo": "Fim da 6x1 e dois dias de descanso (Agência Senado)",
+      "url": "https://www12.senado.leg.br/noticias/materias/2026/11/13/senado-aprova-fim-da-6x1-e-garante-dois-dias-de-descanso-semanal"
+    },
+    {
+      "titulo": "Portaria do Ministério do Trabalho (Agência Brasil)",
+      "url": "https://agenciabrasil.ebc.com.br/radioagencia-nacional/geral/audio/2026-11/governo-comeca-divulgar-novas-regras-para-escala-5x2"
+    },
+    {
+      "titulo": "Julgamento no STF (JOTA)",
+      "url": "https://www.jota.info/trabalho/stf-vai-julgar-6x1-em-sessao-presencial-apos-quatro-votos-a-favor-de-liminar-e-destaque-de-fux"
+    }
+  ],
+  "sobre": "Site independente e informativo, sem vínculo com o governo. Não substitui a orientação do seu sindicato, de um advogado ou do Ministério do Trabalho."
+}

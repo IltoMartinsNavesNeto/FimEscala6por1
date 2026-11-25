@@ -1,0 +1,79 @@
+# Robô de atualização: roda todo dia, procura novidades oficiais e, se achar,
+# abre um Pull Request com o dados.json atualizado. Nada vai ao ar sem o seu merge.
+name: Robô de atualização
+
+on:
+  schedule:
+    - cron: "17 11 * * *"   # 08:17 em Brasília (o cron do GitHub usa UTC)
+  workflow_dispatch:         # botão "Run workflow" para rodar na hora
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: robo-atualizacao
+  cancel-in-progress: false
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Já existe proposta aberta?
+        id: aberto
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh pr list --label robo-atualizacao --state open --json number --jq 'length' 2>/dev/null || echo 0)
+          echo "abertos=$n" >> "$GITHUB_OUTPUT"
+          if [ "$n" != "0" ]; then echo "Há $n proposta(s) aberta(s). Revise antes que o robô proponha outra."; fi
+
+      - name: Propostas recusadas recentemente
+        if: steps.aberto.outputs.abertos == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr list --label robo-atualizacao --state closed --limit 10 \
+            --json title,mergedAt,closedAt > robo/recusados.json 2>/dev/null || echo '[]' > robo/recusados.json
+
+      - name: Rodar o robô
+        id: robo
+        if: steps.aberto.outputs.abertos == '0'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          INLABS_EMAIL: ${{ secrets.INLABS_EMAIL }}
+          INLABS_SENHA: ${{ secrets.INLABS_SENHA }}
+        run: python robo/monitor.py
+
+      - name: Abrir Pull Request
+        if: steps.robo.outputs.abrir_pr == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITULO: ${{ steps.robo.outputs.titulo }}
+        run: |
+          ramo="robo/atualizacao-$(date +%Y%m%d-%H%M)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$ramo"
+          git add site/dados.json robo/estado.json
+          git commit -m "Atualização: $TITULO"
+          git push origin "$ramo"
+          gh label create robo-atualizacao --color C2410C --description "Proposta do robô de atualização" --force
+          gh pr create --base main --head "$ramo" --label robo-atualizacao \
+            --title "Atualização: $TITULO" --body-file robo/saida/pr.md
+
+      - name: Guardar o estado do robô
+        if: steps.robo.outputs.abrir_pr != 'true' && steps.robo.outputs.estado_gravado == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add robo/estado.json
+          git commit -m "Robô: atualiza referências das páginas monitoradas" || exit 0
+          git push origin HEAD:main
