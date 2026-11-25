@@ -63,9 +63,10 @@ Abra http://localhost:8080. Dar dois cliques no `index.html` não funciona, porq
 **Quando roda:** todo dia às 08:17 (horário de Brasília), ou quando você clicar em *Run workflow*.
 
 **O que verifica:**
-1. **Páginas oficiais** listadas em `robo/config.json` (texto da EC 141 no Planalto e as ADIs 8.041 e 8.042 no STF). Se o conteúdo mudar, isso vira um sinal.
+1. **Texto da EC 141 no Planalto** (`paginas_monitoradas` em `robo/config.json`). Se o texto mudar, isso vira um sinal.
+   **Andamentos das ADIs 8.041 e 8.042 no STF** (`processos_stf`). Só contam andamentos que podem mudar o site (liminar, pauta, julgamento, destaque, vista, acórdão, decisão, audiência, suspensão, trânsito em julgado, adiamento); petições, remessas, certidões e juntadas são ignoradas.
 2. **Diário Oficial da União** (se o INLABS estiver configurado): baixa a Seção 1 e as edições extras de hoje e de ontem e procura atos sobre a EC 141, o Decreto 13.173, a escala 6x1/5x2 e atos do Ministério do Trabalho sobre jornada e repouso.
-3. **Claude com busca na web**, limitada a domínios oficiais (gov.br, DOU, STF, Congresso, EBC…). Ele recebe o `dados.json` atual e os sinais encontrados, verifica o que saiu desde a última atualização e, se houver algo que torne o site desatualizado, devolve o JSON corrigido.
+3. **Claude com busca na web**, **só quando os passos 1 ou 2 encontram um sinal novo** (sem sinal, nada é gasto). Ele recebe o `dados.json` atual e os sinais, confere nas fontes oficiais (gov.br, DOU, STF, Congresso, EBC…) e, se algo deixar o site desatualizado, devolve o JSON corrigido. Para consultar mesmo sem sinal, use **Run workflow** marcando a opção *forcar*.
 
 **O que você recebe:** um **Pull Request** com o resumo do que mudou, as fontes oficiais, a lista de diferenças no `dados.json` e o que ficou "a confirmar". O GitHub te avisa por e-mail e no app.
 
@@ -75,7 +76,7 @@ Abra http://localhost:8080. Dar dois cliques no `index.html` não funciona, porq
 
 **Proteções:** o JSON proposto passa pelo `validar.py` (estrutura, datas, links https, sem HTML). Se não passar, nenhuma proposta é criada e o workflow falha, e o GitHub te avisa. Nada vai ao ar sem o seu merge.
 
-**Custo:** a busca na web da API do Claude custa US$ 10 por mil buscas. Com no máximo 6 buscas por dia, isso dá até uns US$ 1,80 por mês, mais os tokens. Acompanhe o gasto no Console. Para economizar, troque `"modelo"` em `robo/config.json` por `claude-haiku-5-5` ou diminua `max_buscas`.
+**Custo:** nos dias sem sinal novo, zero. Quando há sinal, cada consulta custa em torno de US$ 0,15 a 0,35 (até 6 buscas a US$ 10 por mil, mais os tokens do Claude Sonnet 5.5). Acompanhe o gasto em platform.claude.com › Usage e defina um teto em Limits.
 
 ### Rodar o robô no seu computador
 

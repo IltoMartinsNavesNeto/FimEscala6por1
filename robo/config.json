@@ -19,18 +19,25 @@
     {
       "nome": "Texto da EC 141/2026 (Planalto)",
       "url": "https://planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm"
-    },
+    }
+  ],
+  "processos_stf": [
     {
       "nome": "ADI 8.041 no STF",
-      "url": "https://portal.stf.jus.br/processos/listarProcessos.asp?classe=ADI&numeroProcesso=8041"
+      "incidente": 7740896,
+      "url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=7740896"
     },
     {
       "nome": "ADI 8.042 no STF",
-      "url": "https://portal.stf.jus.br/processos/listarProcessos.asp?classe=ADI&numeroProcesso=8042"
+      "incidente": 7741658,
+      "url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=7741658"
     }
   ],
   "dou": {
-    "secoes": ["DO1", "DO1E"],
+    "secoes": [
+      "DO1",
+      "DO1E"
+    ],
     "dias_para_tras": 1,
     "termos_fortes": [
       "emenda constitucional n 141",

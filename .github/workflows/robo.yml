@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: "17 11 * * *"   # 08:17 em Brasília (o cron do GitHub usa UTC)
   workflow_dispatch:         # botão "Run workflow" para rodar na hora
+    inputs:
+      forcar:
+        description: "Consultar o Claude mesmo sem novidade no STF, Planalto ou Diário Oficial (gasta crédito)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -60,7 +65,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           INLABS_EMAIL: ${{ secrets.INLABS_EMAIL }}
           INLABS_SENHA: ${{ secrets.INLABS_SENHA }}
-        run: python robo/monitor.py
+        run: python robo/monitor.py ${{ inputs.forcar && '--forcar' || '' }}
 
       - name: Abrir Pull Request
         if: steps.robo.outputs.abrir_pr == 'true'

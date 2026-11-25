@@ -95,8 +95,8 @@ def normalizar(texto):
     return re.sub(r"\s+", " ", t)
 
 
-def baixar(url, timeout=60):
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "pt-BR,pt;q=0.9"})
+def baixar(url, timeout=60, cabecalhos=None):
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "pt-BR,pt;q=0.9", **(cabecalhos or {})})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         bruto = r.read()
         charset = r.headers.get_content_charset() or "utf-8"
@@ -154,6 +154,70 @@ def verificar_paginas(config, estado):
         vistas[url] = {"hash": h, "verificado_em": hoje_br().isoformat()}
     return sinais
 
+
+# ------------------------------------------------------ 1b. andamentos no STF
+# Só estes tipos de andamento podem mudar o site; petições, remessas, certidões,
+# juntadas e afins (dezenas por semana) são ignorados para não gastar à toa.
+ANDAMENTO_RELEVANTE = re.compile(
+    r"liminar|julgament|julgad|pauta|em mesa|destaque|destacad|vista ao\(à\) ministr|pedido de vista|"
+    r"ac[oó]rd[aã]o|decis[aã]o|audi[eê]ncia|referend|homolog|suspens|tr[aâ]nsit|baixa definitiva|"
+    r"cancelad|retirad|adiad",
+    re.IGNORECASE)
+
+
+def andamentos_stf(conteudo):
+    """Lista de andamentos (data, nome, detalhe) da aba de andamentos de um processo do STF."""
+    itens = []
+    for bloco in conteudo.split('class="andamento-item"')[1:]:
+        if "andamento-invalido" in bloco[:2000]:
+            continue
+        data = re.search(r'andamento-data[^"]*">([^<]+)<', bloco)
+        nome = re.search(r'andamento-nome[^"]*">([^<]+)<', bloco)
+        detalhe = re.search(r'col-md-9 p-0">(.*?)</div>', bloco, re.S)
+        if not data or not nome:
+            continue
+        itens.append({
+            "data": data.group(1).strip(),
+            "nome": nome.group(1).strip(),
+            "detalhe": html_para_texto(detalhe.group(1))[:500] if detalhe else "",
+        })
+    return itens
+
+
+def _chave_andamento(item):
+    texto = f'{item["data"]}|{item["nome"]}|{item["detalhe"]}'
+    return hashlib.sha256(texto.encode("utf-8")).hexdigest()[:16]
+
+
+def verificar_stf(config, estado):
+    sinais = []
+    memoria = estado.setdefault("stf", {})
+    for proc in config.get("processos_stf", []):
+        incidente, nome = str(proc["incidente"]), proc["nome"]
+        url = f"https://portal.stf.jus.br/processos/abaAndamentos.asp?incidente={incidente}&imprimir="
+        try:
+            itens = andamentos_stf(baixar(url, cabecalhos={"Referer": proc["url"]}))
+        except Exception as e:  # rede, bloqueio, timeout: não interrompe o robô
+            log(f"aviso: não consegui ler os andamentos de {nome} ({e})")
+            continue
+        if not itens:
+            log(f"aviso: {nome} veio sem andamentos; ignorando nesta rodada")
+            continue
+        relevantes = [i for i in itens if ANDAMENTO_RELEVANTE.search(i["nome"])]
+        chaves = [_chave_andamento(i) for i in relevantes]
+        anterior = memoria.get(incidente)
+        if anterior is None:
+            log(f"primeira leitura dos andamentos de {nome}; guardando referência")
+        else:
+            vistos = set(anterior.get("vistos", []))
+            novos = [i for i, c in zip(relevantes, chaves) if c not in vistos]
+            if novos:
+                log(f"andamento novo em {nome}: " + "; ".join(f'{i["data"]} {i["nome"]}' for i in novos[:5]))
+                sinais.append({"tipo": "stf", "nome": nome, "url": proc["url"], "andamentos_novos": novos[:20]})
+            else:
+                log(f"sem andamento novo relevante em {nome}")
+        memoria[incidente] = {"vistos": chaves[:400], "verificado_em": hoje_br().isoformat()}
+    return sinais
 
 # --------------------------------------------------- 2. Diário Oficial (INLABS)
 def _inlabs_sessao(email, senha):
@@ -401,6 +465,7 @@ def main():
     ap = argparse.ArgumentParser(description="Robô de atualização do site Nova Jornada")
     ap.add_argument("--seco", action="store_true", help="não grava nenhum arquivo")
     ap.add_argument("--sem-ia", action="store_true", help="não chama o Claude")
+    ap.add_argument("--forcar", action="store_true", help="chama o Claude mesmo sem sinal novo")
     args = ap.parse_args()
 
     carregar_env()
@@ -438,11 +503,18 @@ def executar(args, resultado):
         print("::error title=dados.json com problemas::" + "; ".join(erros)[:900])
         return 1
 
-    sinais = verificar_paginas(config, estado) + verificar_dou(config, estado)
+    sinais = verificar_paginas(config, estado) + verificar_stf(config, estado) + verificar_dou(config, estado)
     estado_mudou = json.dumps(estado, sort_keys=True) != estado_antes
 
     if args.sem_ia:
         log(f"modo --sem-ia: {len(sinais)} sinal(is) encontrado(s)")
+        salvar_estado()
+        return 0
+
+    # O Claude (que custa) só é chamado quando há sinal oficial novo: andamento relevante no STF,
+    # mudança no texto da EC no Planalto ou ato no Diário Oficial. Use --forcar para consultar mesmo assim.
+    if not sinais and not args.forcar:
+        log("nenhuma novidade oficial detectada; o Claude não foi chamado (sem custo)")
         salvar_estado()
         return 0
 
