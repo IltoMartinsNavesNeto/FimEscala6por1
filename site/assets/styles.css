@@ -135,6 +135,10 @@ h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.04; letter-spacing: -0.02
 .rodape__linha > div:first-child { flex-basis: 420px; }
 .rodape h2 { font-size: 22px; margin-bottom: 12px; }
 .rodape p { font-size: 15px; color: var(--texto); margin-bottom: 8px; }
+.autor { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; border-top: 1px solid var(--linha); padding-top: 20px; padding-bottom: 28px; font-size: 15px; color: var(--texto); }
+.autor p { margin: 0; }
+.autor__links { list-style: none; margin: 0; padding: 0; display: flex; gap: 16px; }
+.autor__links a { font-weight: 600; }
 .fontes { margin: 0; padding-left: 18px; font-size: 15px; display: flex; flex-direction: column; gap: 6px; }
 
 .erro { position: fixed; left: 16px; right: 16px; bottom: 16px; background: var(--tinta); color: var(--branco); padding: 16px 20px; border-radius: 12px; font-size: 15px; z-index: 20; }
