@@ -254,3 +254,22 @@ h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.04; letter-spacing: -0.02
   .ponto__tabela th, .ponto__tabela td { padding: 4px 8px; font-size: 12px; }
   .secao { padding: 0; }
 }
+
+/* Apoio: logo pequeno da Sentri Finance no fim do rodapé */
+.apoio { margin-left: auto; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 4px 8px; border-radius: 10px; text-decoration: none; color: var(--suave); transition: background-color 0.15s ease; }
+.apoio:hover { background: var(--fundo); color: var(--suave); }
+.apoio__rotulo { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.apoio img { display: block; height: 32px; width: auto; }
+@media print { .apoio { display: none !important; } }
+.topo__marca { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.apoio--topo { margin-left: 0; padding: 4px 10px 4px 16px; border-left: 1px solid var(--linha); border-radius: 0 10px 10px 0; gap: 10px; }
+.apoio--topo img { height: 28px; }
+@media (max-width: 420px) {
+  .topo__marca { gap: 10px; }
+  .apoio--topo { padding-left: 10px; }
+  .apoio--topo .apoio__rotulo { display: none; }
+  .apoio--topo img { height: 22px; }
+  .topo__linha { column-gap: 8px; }
+  .marca { font-size: 17px; gap: 8px; }
+  .marca__selo { width: 32px; height: 32px; font-size: 13px; }
+}
