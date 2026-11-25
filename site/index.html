@@ -35,6 +35,7 @@
       <a href="#mudancas">O que muda</a>
       <a href="#linha-do-tempo">Datas</a>
       <a href="#calcule">Valor da hora</a>
+      <a href="#ponto">Meu ponto</a>
       <a href="#casos">Meu caso</a>
       <a href="#direitos">Se não cumprirem</a>
     </nav>
@@ -90,6 +91,118 @@
     </div>
   </section>
 
+  <section id="ponto" class="container secao">
+    <h2>Meu ponto</h2>
+    <p class="intro">Coloque sua escala, seu horário e sua cidade para ver os dias de trabalho, as folgas e os feriados do mês ou do ano, e se as suas semanas cabem no limite de horas. Tudo é calculado no seu aparelho.</p>
+
+    <form class="ponto__form" id="ponto-form" novalidate>
+      <fieldset class="ponto__grupo">
+        <legend>Onde você trabalha</legend>
+        <div class="ponto__campos">
+          <label class="ponto__campo">Estado
+            <select id="ponto-uf"><option value="">Escolha o estado</option></select>
+          </label>
+          <label class="ponto__campo">Cidade
+            <select id="ponto-cidade" disabled><option value="">Escolha o estado primeiro</option></select>
+          </label>
+        </div>
+        <p class="nota" id="ponto-cidade-status"></p>
+      </fieldset>
+
+      <fieldset class="ponto__grupo">
+        <legend>Sua escala</legend>
+        <label class="ponto__campo">Tipo de escala
+          <select id="ponto-escala">
+            <option value="5x2">5x2: segunda a sexta</option>
+            <option value="6x1-fixa">6x1 com folga fixa</option>
+            <option value="6x1-reveza">6x1 com folga que reveza</option>
+            <option value="12x36">12x36</option>
+            <option value="semana">Outra: escolho os dias da semana</option>
+            <option value="ciclo">Outra: dias de trabalho e de folga em sequência</option>
+          </select>
+        </label>
+        <div class="ponto__dias" id="ponto-dias" role="group" aria-label="Dias da semana em que você trabalha"></div>
+        <div class="ponto__campos" id="ponto-ciclo" hidden>
+          <label class="ponto__campo ponto__campo--curto">Dias de trabalho
+            <input id="ponto-ciclo-trabalho" type="number" min="1" max="14" value="6" inputmode="numeric">
+          </label>
+          <label class="ponto__campo ponto__campo--curto">Dias de folga
+            <input id="ponto-ciclo-folga" type="number" min="1" max="14" value="1" inputmode="numeric">
+          </label>
+          <label class="ponto__campo"><span id="ponto-ciclo-rotulo">Primeiro dia de trabalho depois de uma folga</span>
+            <input id="ponto-ciclo-inicio" type="date">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="ponto__grupo">
+        <legend>Seu horário</legend>
+        <div class="ponto__campos">
+          <label class="ponto__campo ponto__campo--curto">Entrada
+            <input id="ponto-entrada" type="time" value="08:00">
+          </label>
+          <label class="ponto__campo ponto__campo--curto">Saída
+            <input id="ponto-saida" type="time" value="17:00">
+          </label>
+          <label class="ponto__campo ponto__campo--curto">Intervalo
+            <select id="ponto-intervalo">
+              <option value="0">Sem intervalo</option>
+              <option value="15">15 min</option>
+              <option value="30">30 min</option>
+              <option value="60" selected>1 hora</option>
+              <option value="75">1h15</option>
+              <option value="90">1h30</option>
+              <option value="105">1h45</option>
+              <option value="120">2 horas</option>
+            </select>
+          </label>
+        </div>
+        <label class="ponto__marcar"><input id="ponto-trabalha-feriado" type="checkbox"> Trabalho nos feriados que caem nos meus dias de escala</label>
+      </fieldset>
+
+      <fieldset class="ponto__grupo">
+        <legend>Período</legend>
+        <div class="ponto__campos">
+          <label class="ponto__campo">Mês
+            <select id="ponto-mes"></select>
+          </label>
+          <label class="ponto__campo ponto__campo--curto">Ano
+            <input id="ponto-ano" type="number" min="2024" max="2035" inputmode="numeric">
+          </label>
+        </div>
+      </fieldset>
+    </form>
+
+    <div class="ponto__resultado" id="ponto-resultado" aria-live="polite">
+      <div class="ponto__cabeca">
+        <h3 id="ponto-titulo">Seu ponto</h3>
+        <button type="button" class="botao-secundario" id="ponto-imprimir">Imprimir ou salvar em PDF</button>
+      </div>
+      <div class="grade grade--4 ponto__resumo" id="ponto-resumo"></div>
+      <ul class="ponto__alertas" id="ponto-alertas"></ul>
+
+      <details class="ponto__feriados" id="ponto-feriados-bloco">
+        <summary id="ponto-feriados-titulo">Feriados do período</summary>
+        <p class="nota" id="ponto-feriados-aviso"></p>
+        <ul class="ponto__lista-feriados" id="ponto-feriados"></ul>
+        <div class="ponto__novo-feriado">
+          <label class="ponto__campo ponto__campo--data">Data
+            <input id="ponto-novo-data" type="date">
+          </label>
+          <label class="ponto__campo">Nome do feriado
+            <input id="ponto-novo-nome" type="text" maxlength="60" placeholder="Ex.: Aniversário da cidade">
+          </label>
+          <button type="button" class="botao-secundario" id="ponto-novo-adicionar">Adicionar feriado</button>
+        </div>
+      </details>
+
+      <div class="ponto__tabela-caixa">
+        <table class="ponto__tabela" id="ponto-tabela"></table>
+      </div>
+      <p class="nota ponto__rodape" id="ponto-nota"></p>
+    </div>
+  </section>
+
   <section id="casos" class="container secao">
     <h2>E no meu caso?</h2>
     <p class="intro">Situações que geram mais dúvida.</p>
@@ -138,5 +251,6 @@
 <noscript><div class="erro">Este site precisa de JavaScript para mostrar as datas e a calculadora.</div></noscript>
 
 <script src="assets/app.js" defer></script>
+<script src="assets/ponto.js" defer></script>
 </body>
 </html>

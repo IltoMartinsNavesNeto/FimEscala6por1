@@ -13,6 +13,7 @@ O conteúdo acompanha as fontes oficiais. Um robô verifica todo dia se saiu alg
 - **O que muda:** jornada semanal, folgas e regras de transição, em linguagem simples.
 - **Linha do tempo:** as etapas da mudança, com contagem regressiva para a próxima e selos de "Já aconteceu" e "Próxima etapa".
 - **Calculadora do valor da hora:** a partir do salário, mostra quanto vale a hora em cada etapa. Roda só no navegador, e nenhum dado sai do aparelho.
+- **Meu ponto:** a pessoa informa escala (5x2, 6x1, 12x36 ou personalizada), horário e cidade e vê o espelho de ponto do mês ou o resumo do ano, com folgas, feriados nacionais, estaduais e municipais, e as semanas que passam do limite de horas ou ficam sem as folgas exigidas.
 - **Meu caso:** respostas para situações específicas, como 12x36, turnos ininterruptos, folgas que mudam toda semana e pedidos para trabalhar na folga.
 - **Se não cumprirem:** o que o trabalhador pode fazer e a quem recorrer.
 
@@ -38,7 +39,7 @@ fontes oficiais ──► robô diário ──► Claude propõe a edição do c
 - **Informativo e independente.** Sem vínculo com o governo e sem identidade visual oficial. Não substitui sindicato, advogado ou Ministério do Trabalho.
 - **Só fonte oficial.** Toda informação aponta para a norma ou o órgão de onde veio. Uma liminar mal interpretada vira desinformação para milhares de pessoas.
 - **Tom neutro.** O tema é politizado. O site fica nos fatos e nas regras.
-- **Privacidade.** Sem cookies de rastreamento, fontes hospedadas no próprio site e nenhum salário guardado.
+- **Privacidade.** Sem cookies de rastreamento, fontes hospedadas no próprio site e nenhum salário guardado. As escolhas do "Meu ponto" ficam só no aparelho; para listar as cidades, o site consulta o IBGE enviando apenas a sigla do estado.
 
 ## Estrutura
 

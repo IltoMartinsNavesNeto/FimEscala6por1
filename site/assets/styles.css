@@ -184,3 +184,73 @@ h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.04; letter-spacing: -0.02
 .tema__sol { display: none; }
 [data-tema="escuro"] .tema__lua { display: none; }
 [data-tema="escuro"] .tema__sol { display: block; }
+
+/* Meu ponto */
+[hidden] { display: none !important; }
+.ponto__form { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.ponto__grupo { margin: 0; padding: 20px; border: 1px solid var(--linha); border-radius: 14px; background: var(--superficie); min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.ponto__grupo legend { padding: 0 6px; font-family: var(--titulo); font-weight: 700; font-size: 17px; }
+.ponto__campos { display: flex; flex-wrap: wrap; gap: 12px; }
+.ponto__campo { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; flex: 1 1 180px; min-width: 0; }
+.ponto__campo--curto { flex: 0 1 130px; }
+.ponto__grupo > .ponto__campo { flex: none; }
+.ponto__campo--data { flex: 0 1 190px; }
+.ponto__resumo { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.ponto__resumo .cartao { padding: 18px; gap: 6px; }
+.ponto__campo input, .ponto__campo select { font: inherit; font-weight: 500; font-size: 16px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--selo-linha); border-radius: 10px; background: var(--fundo); color: var(--tinta); width: 100%; }
+.ponto__campo select:disabled { opacity: 0.6; }
+.ponto__marcar { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+.ponto__marcar input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--destaque-fundo); flex: none; }
+.ponto__dias { display: flex; flex-wrap: wrap; gap: 6px; }
+.ponto__dia { position: relative; }
+.ponto__dia input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.ponto__dia span { display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 44px; padding: 0 10px; border: 1px solid var(--selo-linha); border-radius: 10px; font-size: 14px; font-weight: 600; color: var(--texto); background: var(--fundo); }
+.ponto__dia input:checked + span { background: var(--destaque-fundo); border-color: var(--destaque-fundo); color: var(--sobre-cor); }
+.ponto__dia input:focus-visible + span { outline: 3px solid var(--foco); outline-offset: 2px; }
+
+.ponto__cabeca { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.ponto__cabeca h3 { font-size: 24px; }
+.botao-secundario { font: inherit; font-size: 15px; font-weight: 600; min-height: 44px; padding: 8px 16px; border: 1px solid var(--tinta); border-radius: 10px; background: transparent; color: var(--tinta); cursor: pointer; }
+.botao-secundario:hover { border-color: var(--destaque); color: var(--destaque); }
+.ponto__resumo { margin-bottom: 16px; }
+.cartao p.ponto__numero { color: var(--tinta); font-family: var(--titulo); font-size: clamp(26px, 6vw, 34px); overflow-wrap: anywhere; font-weight: 700; line-height: 1.1; }
+.ponto__alertas { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.ponto__alertas li { padding: 12px 16px; border-radius: 10px; font-size: 15px; background: var(--destaque-claro); border: 1px solid var(--destaque-claro-linha); }
+.ponto__alertas li.ok { background: var(--superficie); border-color: var(--linha); }
+
+.ponto__feriados { border: 1px solid var(--linha); border-radius: 14px; background: var(--superficie); padding: 0 20px; margin-bottom: 20px; }
+.ponto__feriados summary { cursor: pointer; font-weight: 700; padding: 16px 0; min-height: 44px; }
+.ponto__feriados[open] { padding-bottom: 20px; }
+.ponto__lista-feriados { list-style: none; margin: 12px 0 16px; padding: 0; display: flex; flex-direction: column; }
+.ponto__lista-feriados li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; padding: 10px 0; border-top: 1px solid var(--linha); font-size: 15px; }
+.ponto__lista-feriados .data { font-family: var(--titulo); font-weight: 700; min-width: 88px; }
+.ponto__lista-feriados .nome { flex: 1 1 220px; min-width: 0; }
+.ponto__lista-feriados .origem { font-size: 13px; color: var(--suave); display: block; }
+.ponto__lista-feriados .acao { display: flex; gap: 8px; align-items: center; font-size: 14px; }
+.ponto__lista-feriados .remover { font: inherit; font-size: 13px; border: 0; background: none; color: var(--destaque); cursor: pointer; text-decoration: underline; min-height: 32px; }
+.ponto__novo-feriado { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+
+.ponto__tabela-caixa { overflow-x: auto; border: 1px solid var(--linha); border-radius: 14px; background: var(--superficie); }
+.ponto__tabela { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.ponto__tabela th, .ponto__tabela td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--linha); white-space: nowrap; }
+.ponto__tabela th { font-size: 13px; font-weight: 600; color: var(--suave); text-transform: uppercase; letter-spacing: 0.03em; }
+.ponto__tabela td.num, .ponto__tabela th.num { text-align: right; }
+.ponto__tabela tr:last-child td { border-bottom: 0; }
+.ponto__tabela tr.folga td { color: var(--suave); }
+.ponto__tabela tr.feriado td { background: var(--destaque-claro); }
+.ponto__tabela tr.semana td { font-weight: 600; background: var(--fundo); font-size: 14px; }
+.ponto__tabela tr.semana.acima td { color: var(--destaque); }
+.ponto__tabela tfoot td { font-weight: 700; border-top: 2px solid var(--tinta); border-bottom: 0; }
+.ponto__tabela .situacao { white-space: normal; min-width: 160px; }
+.ponto__tabela button { font: inherit; font-weight: 600; border: 0; background: none; color: var(--destaque); cursor: pointer; text-decoration: underline; padding: 0; min-height: 32px; }
+.ponto__rodape { margin-top: 16px; max-width: 760px; }
+
+@media print {
+  .topo, .pular, .tema, main > section:not(#ponto), .rodape, .ponto__form, #ponto > .intro, #ponto-imprimir, .ponto__novo-feriado, .erro { display: none !important; }
+  body { background: #fff; color: #000; }
+  .ponto__feriados { display: block; }
+  .ponto__feriados:not([open]) > *:not(summary) { display: block; }
+  .ponto__tabela-caixa { overflow: visible; border: 0; }
+  .ponto__tabela th, .ponto__tabela td { padding: 4px 8px; font-size: 12px; }
+  .secao { padding: 0; }
+}

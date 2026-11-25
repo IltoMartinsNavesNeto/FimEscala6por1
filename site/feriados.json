@@ -1,0 +1,234 @@
+{
+  "atualizadoEm": "2026-11-25",
+  "aviso": "Lista montada a partir das leis federais e estaduais e dos calendários oficiais dos tribunais de cada capital. Feriados municipais podem mudar por lei local: confira com o sindicato ou a prefeitura e ajuste a lista se precisar.",
+  "fontes": [
+    { "titulo": "Feriados nacionais e estaduais (leis citadas em cada item)", "url": "https://pt.wikipedia.org/wiki/Feriados_no_Brasil" },
+    { "titulo": "Feriados municipais das 27 capitais em 2026 (calendários dos TJs)", "url": "https://www.sijur.com.br/feriados-forenses-2026/" },
+    { "titulo": "Lei 605/1949: repouso semanal e trabalho em feriados", "url": "https://www.planalto.gov.br/ccivil_03/leis/l0605.htm" }
+  ],
+  "nacionais": [
+    { "data": "01-01", "nome": "Confraternização Universal", "lei": "Lei 662/1949" },
+    { "pascoa": -48, "nome": "Segunda de Carnaval", "tipo": "facultativo" },
+    { "pascoa": -47, "nome": "Terça de Carnaval", "tipo": "facultativo" },
+    { "pascoa": -2, "nome": "Sexta-feira Santa", "lei": "Lei 9.093/1995" },
+    { "data": "04-21", "nome": "Tiradentes", "lei": "Lei 662/1949" },
+    { "data": "05-01", "nome": "Dia do Trabalhador", "lei": "Lei 662/1949" },
+    { "pascoa": 60, "nome": "Corpus Christi", "tipo": "facultativo" },
+    { "data": "09-07", "nome": "Independência do Brasil", "lei": "Lei 662/1949" },
+    { "data": "10-12", "nome": "Nossa Senhora Aparecida", "lei": "Lei 6.802/1980" },
+    { "data": "11-02", "nome": "Finados", "lei": "Lei 662/1949" },
+    { "data": "11-15", "nome": "Proclamação da República", "lei": "Lei 662/1949" },
+    { "data": "11-20", "nome": "Dia Nacional de Zumbi e da Consciência Negra", "lei": "Lei 14.759/2023", "desde": 2024 },
+    { "data": "12-25", "nome": "Natal", "lei": "Lei 662/1949" }
+  ],
+  "estaduais": {
+    "AC": [
+      { "data": "01-22", "nome": "Dia do Católico", "lei": "Lei estadual 3.137/2016", "mover": "sextaSeguinte" },
+      { "data": "01-23", "nome": "Dia do Evangélico", "lei": "Lei estadual 1.538/2004", "mover": "sextaSeguinte" },
+      { "data": "03-08", "nome": "Dia Internacional da Mulher", "lei": "Lei estadual 1.411/2001", "mover": "sextaSeguinte" },
+      { "data": "06-15", "nome": "Aniversário do Acre", "lei": "Lei estadual 14/1964" },
+      { "data": "09-05", "nome": "Dia da Amazônia", "lei": "Lei estadual 1.526/2004", "mover": "sextaSeguinte" },
+      { "data": "11-17", "nome": "Tratado de Petrópolis", "lei": "Lei estadual 57/1965", "mover": "sextaSeguinte" }
+    ],
+    "AL": [
+      { "data": "06-24", "nome": "São João", "lei": "Lei estadual 5.508/1993" },
+      { "data": "06-29", "nome": "São Pedro", "lei": "Lei estadual 5.509/1993" },
+      { "data": "09-16", "nome": "Emancipação política de Alagoas", "lei": "Decreto estadual 68.782/2019" },
+      { "data": "11-30", "nome": "Dia do Evangélico", "lei": "Lei estadual 7.541/2013" },
+      { "data": "12-08", "nome": "Imaculada Conceição", "tipo": "facultativo" }
+    ],
+    "AP": [
+      { "data": "03-19", "nome": "São José, padroeiro do Amapá", "lei": "Lei estadual 667/2002" },
+      { "data": "05-15", "nome": "Dia de Cabralzinho", "lei": "Lei estadual 1.669/2012" },
+      { "data": "09-13", "nome": "Criação do Território Federal do Amapá", "lei": "Constituição estadual" }
+    ],
+    "AM": [
+      { "data": "09-05", "nome": "Elevação do Amazonas a província", "lei": "Lei estadual 25/1977" },
+      { "data": "12-08", "nome": "Imaculada Conceição", "lei": "Lei estadual 4.787/2019" }
+    ],
+    "BA": [
+      { "data": "06-23", "nome": "Véspera de São João", "tipo": "facultativo" },
+      { "data": "07-02", "nome": "Independência da Bahia", "lei": "Constituição estadual, art. 6º" }
+    ],
+    "CE": [
+      { "data": "03-19", "nome": "São José, padroeiro do Ceará", "lei": "Lei 9.093/1995" },
+      { "data": "03-25", "nome": "Abolição da escravidão no Ceará", "lei": "Constituição estadual, art. 18" },
+      { "data": "08-15", "nome": "Assunção de Nossa Senhora", "tipo": "facultativo" }
+    ],
+    "DF": [
+      { "data": "11-30", "nome": "Dia do Evangélico", "lei": "Lei distrital 963/1995" }
+    ],
+    "ES": [
+      { "pascoa": 8, "nome": "Nossa Senhora da Penha", "lei": "Lei estadual 11.010/2019" },
+      { "data": "05-23", "nome": "Colonização do solo espírito-santense", "tipo": "facultativo" }
+    ],
+    "GO": [
+      { "data": "03-19", "nome": "São José", "tipo": "facultativo" }
+    ],
+    "MA": [
+      { "data": "07-28", "nome": "Adesão do Maranhão à independência", "lei": "Lei estadual 2.457/1964" },
+      { "data": "12-08", "nome": "Imaculada Conceição", "tipo": "facultativo" }
+    ],
+    "MT": [
+      { "pascoa": -3, "nome": "Quinta-feira Santa", "tipo": "facultativo" }
+    ],
+    "MS": [
+      { "data": "10-11", "nome": "Criação do Mato Grosso do Sul", "lei": "Lei estadual 10/1979" }
+    ],
+    "MG": [
+      { "pascoa": -3, "nome": "Quinta-feira Santa", "tipo": "facultativo" }
+    ],
+    "PA": [
+      { "data": "08-15", "nome": "Adesão do Pará à independência", "lei": "Lei estadual 5.999/1996" },
+      { "mes": 10, "diaSemana": 1, "ordem": 2, "nome": "Segunda-feira após o Círio de Nazaré", "tipo": "facultativo" }
+    ],
+    "PB": [
+      { "data": "06-24", "nome": "São João", "tipo": "facultativo" },
+      { "data": "08-05", "nome": "Fundação da Paraíba e Nossa Senhora das Neves", "lei": "Lei estadual 3.489/1967" }
+    ],
+    "PR": [
+      { "pascoa": -3, "nome": "Quinta-feira Santa", "tipo": "facultativo" }
+    ],
+    "PE": [
+      { "data": "03-06", "nome": "Revolução Pernambucana de 1817", "lei": "Lei estadual 13.835/2009" },
+      { "data": "06-24", "nome": "São João", "tipo": "facultativo" }
+    ],
+    "PI": [
+      { "data": "10-19", "nome": "Dia do Piauí", "lei": "Lei estadual 176/1937" }
+    ],
+    "RJ": [
+      { "pascoa": -47, "nome": "Terça de Carnaval", "lei": "Lei estadual 5.243/2008" },
+      { "data": "04-23", "nome": "São Jorge", "lei": "Lei estadual 5.198/2008" },
+      { "pascoa": 60, "nome": "Corpus Christi", "lei": "Lei estadual 5.243/2008" },
+      { "mes": 10, "diaSemana": 1, "ordem": 3, "nome": "Dia do Comércio (folga para comerciários)", "tipo": "facultativo", "lei": "Lei estadual 160/1977" }
+    ],
+    "RN": [
+      { "data": "10-03", "nome": "Mártires de Cunhaú e Uruaçu", "lei": "Lei estadual 8.913/2006" }
+    ],
+    "RS": [
+      { "pascoa": -3, "nome": "Quinta-feira Santa", "tipo": "facultativo" },
+      { "data": "09-20", "nome": "Revolução Farroupilha", "lei": "Constituição estadual, art. 6º" }
+    ],
+    "RO": [
+      { "data": "01-04", "nome": "Criação do estado de Rondônia", "lei": "Lei estadual 2.291/2010" },
+      { "data": "06-18", "nome": "Dia do Evangélico", "lei": "Lei estadual 1.026/2001" }
+    ],
+    "RR": [
+      { "data": "10-05", "nome": "Criação do estado de Roraima", "lei": "Constituição estadual, art. 9º" }
+    ],
+    "SC": [
+      { "data": "08-11", "nome": "Dia de Santa Catarina", "lei": "Lei estadual 12.906/2004", "mover": "domingoSeguinte" },
+      { "data": "11-25", "nome": "Santa Catarina de Alexandria", "lei": "Lei estadual 10.306/1996", "mover": "domingoSeguinte" }
+    ],
+    "SP": [
+      { "data": "07-09", "nome": "Revolução Constitucionalista de 1932", "lei": "Lei estadual 9.497/1997" }
+    ],
+    "SE": [
+      { "data": "06-24", "nome": "São João", "tipo": "facultativo" },
+      { "data": "07-08", "nome": "Emancipação política de Sergipe", "lei": "Constituição estadual, art. 269" }
+    ],
+    "TO": [
+      { "data": "03-18", "nome": "Dia da Autonomia", "tipo": "facultativo" },
+      { "data": "09-08", "nome": "Nossa Senhora da Natividade", "lei": "Lei estadual 627/1993" },
+      { "data": "10-05", "nome": "Criação do Tocantins", "lei": "Lei estadual 98/1989" }
+    ]
+  },
+  "municipais": {
+    "AC/Rio Branco": [
+      { "data": "12-28", "nome": "Aniversário de Rio Branco", "lei": "Lei municipal 330/1981" }
+    ],
+    "AL/Maceió": [
+      { "pascoa": 60, "nome": "Corpus Christi" },
+      { "data": "06-29", "nome": "Marechal Floriano Peixoto" },
+      { "data": "08-27", "nome": "Nossa Senhora dos Prazeres" },
+      { "data": "12-08", "nome": "Nossa Senhora da Conceição" }
+    ],
+    "AP/Macapá": [
+      { "data": "02-04", "nome": "Aniversário de Macapá" }
+    ],
+    "AM/Manaus": [
+      { "data": "10-24", "nome": "Aniversário de Manaus" }
+    ],
+    "BA/Salvador": [
+      { "pascoa": 60, "nome": "Corpus Christi" },
+      { "data": "06-24", "nome": "São João" },
+      { "data": "12-08", "nome": "Nossa Senhora da Conceição da Praia" }
+    ],
+    "CE/Fortaleza": [],
+    "DF/Brasília": [],
+    "ES/Vitória": [
+      { "data": "05-23", "nome": "Colonização do solo espírito-santense" },
+      { "data": "09-08", "nome": "Nossa Senhora da Vitória" }
+    ],
+    "GO/Goiânia": [
+      { "data": "05-24", "nome": "Nossa Senhora Auxiliadora" },
+      { "data": "10-24", "nome": "Aniversário de Goiânia" }
+    ],
+    "MA/São Luís": [
+      { "data": "06-29", "nome": "São Pedro" },
+      { "data": "09-08", "nome": "Fundação de São Luís" }
+    ],
+    "MT/Cuiabá": [
+      { "data": "04-08", "nome": "Aniversário de Cuiabá" },
+      { "data": "12-08", "nome": "Imaculada Conceição" }
+    ],
+    "MS/Campo Grande": [
+      { "data": "08-26", "nome": "Aniversário de Campo Grande" }
+    ],
+    "MG/Belo Horizonte": [
+      { "pascoa": 60, "nome": "Corpus Christi" },
+      { "data": "08-15", "nome": "Assunção de Nossa Senhora" },
+      { "data": "12-08", "nome": "Nossa Senhora da Conceição" }
+    ],
+    "PA/Belém": [
+      { "pascoa": 60, "nome": "Corpus Christi", "lei": "Lei municipal 6.306/1967" }
+    ],
+    "PB/João Pessoa": [],
+    "PR/Curitiba": [
+      { "data": "09-08", "nome": "Nossa Senhora da Luz, padroeira de Curitiba" }
+    ],
+    "PE/Recife": [
+      { "data": "07-16", "nome": "Nossa Senhora do Carmo" }
+    ],
+    "PI/Teresina": [
+      { "data": "08-16", "nome": "Aniversário de Teresina", "lei": "Lei municipal 2.275/1994" },
+      { "data": "12-08", "nome": "Nossa Senhora da Conceição", "lei": "Lei municipal 2.275/1994" }
+    ],
+    "RJ/Rio de Janeiro": [
+      { "data": "01-20", "nome": "São Sebastião", "lei": "Lei municipal 5.146/2010" }
+    ],
+    "RN/Natal": [
+      { "data": "01-06", "nome": "Santos Reis" },
+      { "pascoa": 60, "nome": "Corpus Christi" },
+      { "data": "11-21", "nome": "Nossa Senhora da Apresentação" }
+    ],
+    "RS/Porto Alegre": [
+      { "data": "02-02", "nome": "Nossa Senhora dos Navegantes" },
+      { "pascoa": 60, "nome": "Corpus Christi" }
+    ],
+    "RO/Porto Velho": [
+      { "data": "01-24", "nome": "Instalação do município", "lei": "Lei municipal 190/1980" },
+      { "data": "05-24", "nome": "Nossa Senhora Auxiliadora" },
+      { "data": "10-02", "nome": "Criação do município de Porto Velho" }
+    ],
+    "RR/Boa Vista": [
+      { "data": "01-20", "nome": "São Sebastião" },
+      { "data": "06-29", "nome": "São Pedro" },
+      { "data": "07-09", "nome": "Aniversário de Boa Vista" }
+    ],
+    "SC/Florianópolis": [
+      { "data": "03-23", "nome": "Aniversário de Florianópolis" }
+    ],
+    "SP/São Paulo": [
+      { "data": "01-25", "nome": "Aniversário de São Paulo" }
+    ],
+    "SE/Aracaju": [
+      { "data": "03-17", "nome": "Aniversário de Aracaju" },
+      { "data": "12-08", "nome": "Nossa Senhora da Conceição" }
+    ],
+    "TO/Palmas": [
+      { "data": "03-19", "nome": "São José, padroeiro de Palmas" },
+      { "data": "05-20", "nome": "Aniversário de Palmas" }
+    ]
+  }
+}
