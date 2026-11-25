@@ -86,4 +86,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add robo/estado.json
           git commit -m "Robô: atualiza referências das páginas monitoradas" || exit 0
-          git push origin HEAD:main
+          # A main pode ter recebido commits enquanto o robô rodava: junta antes de enviar.
+          for tentativa in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            echo "Push recusado (tentativa $tentativa); tentando de novo..."
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          echo "::warning title=Estado do robô não salvo::Não deu para salvar robo/estado.json; ele será atualizado na próxima execução."
