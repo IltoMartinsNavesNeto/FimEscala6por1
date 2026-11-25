@@ -28,20 +28,13 @@ Abra http://localhost:8080. Dar dois cliques no `index.html` não funciona, porq
 
 ## Publicar na internet (GitHub Pages, grátis)
 
-0. **Só na primeira vez:** os dois workflows vieram na pasta `workflows-github\` (a ferramenta que salvou o projeto não pode gravar dentro de `.github\workflows`). Mova-os para o lugar certo:
-   ```powershell
-   cd C:\Crescimento\FimEscala6x1
-   New-Item -ItemType Directory -Force .github\workflows | Out-Null
-   Move-Item workflows-github\*.yml .github\workflows\
-   Remove-Item workflows-github
-   ```
-1. **Crie um repositório público** na sua conta pessoal do GitHub (ex.: `fim-escala-6x1`) e envie o projeto:
+1. **Crie um repositório público** na sua conta pessoal do GitHub (`FimEscala6por1`) e envie o projeto:
    ```powershell
    cd C:\Crescimento\FimEscala6x1
    git init -b main
    git add .
    git commit -m "Primeira versão do site"
-   git remote add origin https://github.com/IltoMartinsNavesNeto/fim-escala-6x1.git
+   git remote add origin https://github.com/IltoMartinsNavesNeto/FimEscala6por1.git
    git push -u origin main
    ```
 2. **Settings → Pages → Build and deployment → Source:** escolha **GitHub Actions**.
@@ -49,7 +42,7 @@ Abra http://localhost:8080. Dar dois cliques no `index.html` não funciona, porq
 4. **Settings → Secrets and variables → Actions → New repository secret:**
    - `ANTHROPIC_API_KEY`: chave da API do Claude (https://platform.claude.com).
    - `INLABS_EMAIL` e `INLABS_SENHA` (opcional): cadastro gratuito em https://inlabs.in.gov.br para o robô ler o Diário Oficial completo todo dia.
-5. **Actions → Publicar site → Run workflow.** O site fica em `https://iltomartinsnavesneto.github.io/fim-escala-6x1/`.
+5. **Actions → Publicar site → Run workflow.** O site fica em `https://www.fimescala6x1.app.br` (ou `https://iltomartinsnavesneto.github.io/FimEscala6por1/` antes do domínio).
 6. **Actions → Robô de atualização → Run workflow**, para testar o robô uma vez.
 
 > Prefere repositório privado? GitHub Pages em repositório privado exige plano pago. A alternativa grátis é o **Cloudflare Pages**: conecte o repositório, deixe o comando de build vazio e use `site` como pasta de saída. Nesse caso, desative o `publicar.yml`.
