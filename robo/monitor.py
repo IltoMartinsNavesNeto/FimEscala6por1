@@ -283,7 +283,7 @@ def chamar_claude(config, sistema, mensagem):
     if not chave:
         raise RuntimeError("ANTHROPIC_API_KEY não definida")
     ferramenta = {
-        "type": "web_search_20250305",
+        "type": "web_search_20260209",  # versão atual da busca na web (Sonnet 5.5)
         "name": "web_search",
         "max_uses": config.get("max_buscas", 6),
         "allowed_domains": config["dominios_permitidos"],
@@ -407,6 +407,10 @@ def main():
     resultado = {"abrir_pr": False, "estado_gravado": False, "titulo": ""}
     try:
         return executar(args, resultado)
+    except Exception as e:  # mostra o motivo no resumo da execução do GitHub
+        msg = " ".join(str(e).split())[:900]
+        print(f"::error title=Robô de atualização::{msg}")
+        raise
     finally:
         saida_github("abrir_pr", "true" if resultado["abrir_pr"] else "false")
         saida_github("estado_gravado", "true" if resultado["estado_gravado"] else "false")
@@ -431,6 +435,7 @@ def executar(args, resultado):
         log("o dados.json atual tem problemas; corrija antes de rodar o robô:")
         for e in erros:
             log(f"  - {e}")
+        print("::error title=dados.json com problemas::" + "; ".join(erros)[:900])
         return 1
 
     sinais = verificar_paginas(config, estado) + verificar_dou(config, estado)

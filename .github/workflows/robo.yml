@@ -43,6 +43,16 @@ jobs:
           gh pr list --label robo-atualizacao --state closed --limit 10 \
             --json title,mergedAt,closedAt > robo/recusados.json 2>/dev/null || echo '[]' > robo/recusados.json
 
+      - name: Conferir a chave da API do Claude
+        if: steps.aberto.outputs.abertos == '0'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error title=Falta a chave da API::Crie o segredo ANTHROPIC_API_KEY em Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
       - name: Rodar o robô
         id: robo
         if: steps.aberto.outputs.abertos == '0'
