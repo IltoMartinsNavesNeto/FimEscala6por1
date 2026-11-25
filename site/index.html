@@ -207,6 +207,29 @@
       </div>
       <p class="nota ponto__rodape" id="ponto-nota"></p>
     </div>
+
+    <aside class="pix" aria-labelledby="pix-titulo">
+      <div class="pix__texto">
+        <p class="pix__selo">Apoie o projeto</p>
+        <h3 id="pix-titulo">O ponto te ajudou? Ajude o site a continuar no ar.</h3>
+        <p>O Nova Jornada é gratuito e independente. Um Pix de qualquer valor ajuda a pagar o domínio e o robô que confere as fontes oficiais todo dia.</p>
+        <div class="pix__chave">
+          <span class="pix__rotulo">Chave Pix (aleatória)</span>
+          <code id="pix-chave">024df450-24e1-44e9-bb57-728de50b8297</code>
+        </div>
+        <div class="pix__acoes">
+          <button type="button" class="pix__botao" data-copiar="pix-chave">Copiar chave Pix</button>
+          <button type="button" class="botao-secundario" data-copiar="pix-copia-cola" id="pix-botao-codigo" hidden>Copiar código Pix (copia e cola)</button>
+        </div>
+        <p class="pix__status" id="pix-status" role="status" aria-live="polite"></p>
+        <p class="nota">No app do banco: Pix › Pagar com chave, ou Pix › Copia e cola.</p>
+        <textarea id="pix-copia-cola" class="pular" readonly tabindex="-1" aria-hidden="true"></textarea>
+      </div>
+      <figure class="pix__qr" id="pix-qr" hidden>
+        <img src="assets/pix-qr.svg" width="200" height="200" alt="QR Code Pix para apoiar o projeto">
+        <figcaption>Aponte a câmera do app do banco</figcaption>
+      </figure>
+    </aside>
   </section>
 
   <section id="casos" class="container secao">
@@ -244,9 +267,10 @@
   </div>
   <div class="container autor">
     <p>Criado por <strong>Ilto Martins Naves Neto</strong></p>
-    <ul class="autor__links" aria-label="Perfis do autor">
+    <ul class="autor__links" aria-label="Perfis e contato do autor">
       <li><a href="https://www.linkedin.com/in/iltomartinsnavesneto/" target="_blank" rel="noopener">LinkedIn</a></li>
       <li><a href="https://github.com/IltoMartinsNavesNeto" target="_blank" rel="noopener">GitHub</a></li>
+      <li class="autor__contato">Contato: <a href="mailto:iltoneto444@gmail.com">iltoneto444@gmail.com</a></li>
     </ul>
     <a class="apoio" href="https://sentrifinance.com.br/" target="_blank" rel="sponsored noopener" aria-label="Apoio: Sentri Finance (abre o site da Sentri Finance)">
       <span class="apoio__rotulo">Apoio</span>
@@ -262,5 +286,6 @@
 
 <script src="assets/app.js" defer></script>
 <script src="assets/ponto.js" defer></script>
+<script src="assets/pix.js" defer></script>
 </body>
 </html>

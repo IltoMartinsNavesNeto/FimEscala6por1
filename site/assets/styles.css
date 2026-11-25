@@ -273,3 +273,23 @@ h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.04; letter-spacing: -0.02
   .marca { font-size: 17px; gap: 8px; }
   .marca__selo { width: 32px; height: 32px; font-size: 13px; }
 }
+
+/* Apoio por Pix (dentro de "Meu ponto") */
+.pix { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; padding: 28px; border-radius: 16px; background: var(--destaque-claro); border: 1px solid var(--destaque-claro-linha); }
+.pix__texto { flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.pix__selo { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--destaque); }
+.pix h3 { font-size: 24px; line-height: 1.2; }
+.pix p { font-size: 16px; color: var(--texto); }
+.pix__chave { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
+.pix__rotulo { font-size: 13px; font-weight: 600; color: var(--suave); }
+.pix__chave code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 15px; padding: 10px 12px; border-radius: 10px; background: var(--superficie); border: 1px dashed var(--selo-linha); color: var(--tinta); overflow-wrap: anywhere; user-select: all; }
+.pix__acoes { display: flex; flex-wrap: wrap; gap: 10px; }
+.pix__botao { font: inherit; font-size: 15px; font-weight: 600; min-height: 44px; padding: 8px 18px; border: 0; border-radius: 10px; background: var(--destaque-fundo); color: var(--sobre-cor); cursor: pointer; }
+.pix__botao:hover { filter: brightness(1.08); }
+.pix__status { min-height: 1.5em; font-size: 14px; font-weight: 600; color: var(--destaque); }
+.pix p.nota { font-size: 14px; }
+.pix__qr { margin: 0; flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.pix__qr img { display: block; width: 200px; height: 200px; padding: 12px; border-radius: 14px; background: #FFFFFF; border: 1px solid var(--linha); }
+.pix__qr figcaption { font-size: 13px; color: var(--suave); }
+.autor__contato { color: var(--texto); }
+@media print { .pix { display: none !important; } }

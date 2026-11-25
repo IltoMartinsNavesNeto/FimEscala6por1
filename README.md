@@ -47,6 +47,7 @@ fontes oficiais ──► robô diário ──► Claude propõe a edição do c
 FimEscala6x1/
 ├─ site/        ← o site publicado: página, conteúdo (dados.json), estilos, fontes e imagens
 ├─ robo/        ← robô de atualização: monitor, validação, regras para o Claude e testes
+├─ scripts/     ← gerador do código Pix e do QR Code de apoio
 ├─ .github/workflows/ ← automações de publicação e do robô diário
 └─ docs/
    ├─ PLANO.md      ← fases do projeto e decisões
