@@ -2,7 +2,7 @@
   "paginas": {
     "https://planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm": {
       "hash": "f0747faaf9bd0407ade3b5217a5cc1679c692b129db98a12115595ae83828aad",
-      "verificado_em": "2026-11-26"
+      "verificado_em": "2026-11-27"
     },
     "https://portal.stf.jus.br/processos/listarProcessos.asp?classe=ADI&numeroProcesso=8041": {
       "hash": "303430ad416f427ae0c296fbdaf7b85b3f4fa520dfc431a4c4b4c8a5815ff03c",
@@ -26,7 +26,7 @@
         "3686a2469703fd32",
         "6f9804d2b686c546"
       ],
-      "verificado_em": "2026-11-26"
+      "verificado_em": "2026-11-27"
     },
     "7741658": {
       "vistos": [
@@ -39,7 +39,7 @@
         "3686a2469703fd32",
         "875d2f5552925276"
       ],
-      "verificado_em": "2026-11-26"
+      "verificado_em": "2026-11-27"
     }
   }
 }
